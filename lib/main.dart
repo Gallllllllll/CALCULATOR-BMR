@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
           elevation: 0.0,
         ),
       ),
+      debugShowCheckedModeBanner: false,
       home: InputPage(),
     );
   }
