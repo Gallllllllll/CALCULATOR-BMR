@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_bmi/components/custom_card.dart';
-import 'package:flutter_bmi/components/icon_card.dart';
 import 'package:flutter_bmi/constan.dart';
-import 'package:flutter_bmi/components/bottom_button.dart';
-import 'package:flutter_bmi/components/round_icon_button.dart';
 import 'package:flutter_bmi/pages/calculator_bmr.dart';
-import 'result_page.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -42,12 +36,17 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: const Text(
           'BMR & Calorie Calculator',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.white, 
+            fontWeight: FontWeight.bold
+          ),
         ),
         backgroundColor: brownColor,
         centerTitle: true,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(20)
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -59,7 +58,14 @@ class _InputPageState extends State<InputPage> {
               // ===== Gender Selection =====
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Gender', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                child: Text(
+                  'Gender', 
+                  style: TextStyle(
+                    fontSize: 22, 
+                    fontWeight: FontWeight.w900,
+                    color: brownColor,
+                  )
+                ),
               ),
               const SizedBox(height: 10),
               Row(
@@ -77,8 +83,18 @@ class _InputPageState extends State<InputPage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.male, size: 50, color: brownColor),
-                            Text('MAN', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: brownColor)),
+                            Icon(
+                              Icons.male, 
+                              size: 50, 
+                              color: brownColor),
+                            Text(
+                              'MAN', 
+                              style: TextStyle(
+                                fontSize: 18, 
+                                fontWeight: FontWeight.bold, 
+                                color: brownColor
+                              )
+                            ),
                           ],
                         ),
                       ),
@@ -93,13 +109,27 @@ class _InputPageState extends State<InputPage> {
                         decoration: BoxDecoration(
                           color: selectedGender == Gender.female ? orangeColor : Colors.white,
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: brownColor, width: 2),
+                          border: Border.all(
+                            color: brownColor, 
+                            width: 2
+                          ),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.female, size: 50, color: brownColor),
-                            Text('WOMAN', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: brownColor)),
+                            Icon(
+                              Icons.female, 
+                              size: 50, 
+                              color: brownColor
+                            ),
+                            Text(
+                              'WOMAN', 
+                              style: TextStyle(
+                                fontSize: 18, 
+                                fontWeight: FontWeight.bold, 
+                                color: brownColor
+                              )
+                            ),
                           ],
                         ),
                       ),
@@ -109,10 +139,17 @@ class _InputPageState extends State<InputPage> {
               ),
 
               const SizedBox(height: 25),
-              // ===== Height =====
+
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Height adjust', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: brownColor)),
+                child: Text(
+                  'Height Adjust', 
+                  style: TextStyle(
+                    fontSize: 22, 
+                    fontWeight: FontWeight.bold, 
+                    color: brownColor
+                  )
+                ),
               ),
               const SizedBox(height: 10),
               Container(
@@ -120,18 +157,28 @@ class _InputPageState extends State<InputPage> {
                   color: brownColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16, 
+                  horizontal: 20
+                ),
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20, 
+                        vertical: 6
+                      ),
                       decoration: BoxDecoration(
                         color: yellowColor,
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Text(
                         'Height',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold, 
+                          fontSize: 18, 
+                          color: brownColor,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -154,9 +201,21 @@ class _InputPageState extends State<InputPage> {
                   ],
                 ),
               ),
-
+  
               const SizedBox(height: 25),
-              // ===== Weight & Age =====
+              Align(
+                alignment: Alignment.centerLeft,
+                
+                child: Text(
+                  'Weight & Age Adjust', 
+                style: TextStyle(
+                  fontSize: 22, 
+                  fontWeight: FontWeight.bold, 
+                  color: brownColor
+                  )
+                ),
+              ),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(
@@ -168,12 +227,13 @@ class _InputPageState extends State<InputPage> {
                       }),
                       onPlus: () => setState(() => weight++),
                       color: orangeColor,
-                      textColor: brownColor,
+                      textColor: Colors.white,
                     ),
                   ),
                   const SizedBox(width: 20),
                   Expanded(
-                    child: _buildInputBox(
+
+                    child: _buildInputBox( 
                       title: 'Age',
                       value: age,
                       onMinus: () => setState(() {
@@ -181,7 +241,7 @@ class _InputPageState extends State<InputPage> {
                       }),
                       onPlus: () => setState(() => age++),
                       color: orangeColor,
-                      textColor: brownColor,
+                      textColor: Colors.white,
                     ),
                   ),
                 ],
@@ -283,9 +343,10 @@ class _InputPageState extends State<InputPage> {
   required Color textColor,
 }) {
   const brownCircle = Color(0xFF5A2E0F); // warna coklat kontras
+  const yellowColor = Color(0xFFFEC020); // warna kuning seperti height box
 
   return Container(
-    height: 140,
+    height: 160,
     decoration: BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(20),
@@ -293,14 +354,30 @@ class _InputPageState extends State<InputPage> {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: textColor),
+        // --- Judul dengan background kuning seperti Height ---
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+          decoration: BoxDecoration(
+            color: yellowColor,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: brownCircle,
+            ),
+          ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Text(
           '$value',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: textColor),
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: textColor,
+          ),
         ),
         const SizedBox(height: 10),
         Row(
@@ -312,7 +389,7 @@ class _InputPageState extends State<InputPage> {
               child: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: brownCircle,
                   shape: BoxShape.circle,
                 ),
@@ -326,7 +403,7 @@ class _InputPageState extends State<InputPage> {
               child: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: brownCircle,
                   shape: BoxShape.circle,
                 ),
